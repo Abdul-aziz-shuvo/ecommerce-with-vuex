@@ -1,4 +1,5 @@
 <template>
+
     <div>
         <Nav />
         <h2>Hello World</h2>
@@ -6,9 +7,11 @@
 </template>
 
 <script>
-
+    import Nav from '../header/header'
     export default {
-       
+       components:{
+           Nav
+       }
     }
 </script>
 
