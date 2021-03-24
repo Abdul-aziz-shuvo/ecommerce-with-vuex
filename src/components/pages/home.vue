@@ -1,16 +1,17 @@
 <template>
 
     <div>
-        <Nav />
-        <h2>Hello World</h2>
+       <div class="container">
+            <product-list />
+       </div>
     </div>
 </template>
 
 <script>
-    import Nav from '../header/header'
+    import ProductList from './product/productList'
     export default {
        components:{
-           Nav
+           ProductList
        }
     }
 </script>

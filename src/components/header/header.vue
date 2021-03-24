@@ -10,22 +10,21 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+         
+          <router-link to="/" class="nav-link active">Home</router-link>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
         </li>
       </ul>
     </div>
-      <!-- cart menu -->
+
       <div class="dropdown">
         <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
            Cart
         </button>
-         <!-- cart men component -->
-        <cart-menu />  
+       <cart-menu />
       </div>
-      <!-- cart menu -->
 
   </div>
 </nav>
@@ -34,8 +33,7 @@
 </template>
 
 <script>
-
-import CartMenu from './cartMenu.vue'
+import CartMenu from './cartMenu'
     export default {
         name: 'Nav',
         components:{
