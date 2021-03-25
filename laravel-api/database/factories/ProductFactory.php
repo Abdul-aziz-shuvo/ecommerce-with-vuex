@@ -10,7 +10,7 @@ $factory->define(Product::class, function (Faker $faker) {
     return [
         'title' => $faker->word,
         'description' => $faker->sentence(5),
-        'image' => "https://via.placeholder.com/150x100",
+        'image' => "https://via.placeholder.com/350x200",
         'price' => rand(10, 100)
     ];
 });

@@ -6,6 +6,20 @@ export const getProducts = ({commit}) => {
      
        commit('SET_PRODUCTS',resp.data)
    })
-
-
 }
+
+export const getProduct = ({commit},productId) => {
+    
+    axios.get(`http://127.0.0.1:8000/api/products/${productId}`)
+    .then(resp => {
+      
+        commit('SET_PRODUCT',resp.data)
+    })
+}
+
+
+// export const  addToCart = ({commit},{product,quantity}) => {
+
+//         commit('SET_PRODUCT',{product,quantity})
+    
+// }

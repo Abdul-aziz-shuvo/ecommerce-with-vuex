@@ -4,7 +4,6 @@
             <div class="col-12 col-md-4" v-for="product in products" :key="product.id">
                 <product-card :product="product"/>
             </div>
-            
         </div>
         
     </div>
@@ -22,7 +21,6 @@ import ProductCard from './productCard'
             }
         },
         mounted() {
-            console.log(this.$store)
             this.$store.dispatch('getProducts');
         },
     }
