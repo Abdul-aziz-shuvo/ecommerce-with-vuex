@@ -24,7 +24,7 @@
 </template>
 <script>
 export default {
-    
+    name:'CartMenu',
 }
 </script>
 <style lang="">

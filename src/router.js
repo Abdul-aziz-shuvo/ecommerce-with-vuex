@@ -10,12 +10,13 @@ const router = createRouter({
     routes:[
        {
         path:'/',
-        component:Home
+        component:Home,
+        name:'Home'
        },
        {
         path:'/product/:id',
         component:Product,
-        name:'product',
+        name:'Product',
         props:true,
        }
     ]

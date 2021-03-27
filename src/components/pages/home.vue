@@ -10,6 +10,7 @@
 <script>
     import ProductList from './product/productList'
     export default {
+        name:'Home',
        components:{
            ProductList
        }

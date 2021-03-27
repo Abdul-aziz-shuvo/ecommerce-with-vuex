@@ -12,6 +12,7 @@
 <script>
 import ProductCard from './productCard'
     export default {
+        name:'ProductList',
         components:{
             ProductCard
         },
