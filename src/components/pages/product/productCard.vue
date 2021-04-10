@@ -6,7 +6,7 @@
             <div class="card-body">
                 <router-link :to="{name:'Product',params:{id:product.id}}"> <h4>{{product.title}}</h4></router-link>
                 <p class="card-text">{{product.price}}</p>
-                <a href="#" class="btn btn-primary">Add to cart</a>
+                <a href="#" class="btn btn-primary" @click="addCart">Add to cart</a>
             </div>
         </div>
        
@@ -17,6 +17,14 @@
     export default {
         props:['product'],
         name:'ProductCard',
+        methods: {
+            addCart(){
+                 this.$store.dispatch('addToCart',{
+                     product : this.product,
+                     quantity : 1
+                 });
+            }
+        },
         mounted() {
            
         },

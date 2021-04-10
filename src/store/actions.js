@@ -18,8 +18,8 @@ export const getProduct = ({commit},productId) => {
 }
 
 
-// export const  addToCart = ({commit},{product,quantity}) => {
+export const  addToCart = ({commit},{product,quantity}) => {
 
-//         commit('SET_PRODUCT',{product,quantity})
+        commit('ADD_TO_CART',{product,quantity})
     
-// }
+}

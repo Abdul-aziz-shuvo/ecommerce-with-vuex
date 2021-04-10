@@ -21,7 +21,7 @@
 
       <div class="dropdown">
         <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-           Cart
+           Cart - {{cartCount}}
         </button>
        <cart-menu />
       </div>
@@ -38,7 +38,17 @@ import CartMenu from './cartMenu'
         name: 'Nav',
         components:{
           CartMenu
-        }
+        },
+        computed:{
+          cartCount(){
+            return this.$store.getters.cartItemCount
+          }
+           
+        },
+        mounted() {
+          
+        },
+       
     }
 </script>
 
