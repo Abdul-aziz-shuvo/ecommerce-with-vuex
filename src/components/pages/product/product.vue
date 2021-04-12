@@ -50,6 +50,7 @@ import {mapState,mapActions} from 'vuex'
         created() {
             this.getProduct(this.id)
         }
+        
     }
 </script>
 

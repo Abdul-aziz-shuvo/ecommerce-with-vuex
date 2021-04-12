@@ -19,12 +19,9 @@ export const getProduct = ({commit},productId) => {
 
 
 export const  addToCart = ({commit},{product,quantity}) => {
-
+   
         commit('ADD_TO_CART',{product,quantity})
-        axios.post(`http://127.0.0.1:8000/api/cart`,{
-            product_id : product.id,
-            quantity
-        })
+        
 }
 
 
