@@ -19,7 +19,7 @@ class ProductsCartController extends Controller
     {
         
         $item = Cart::where('product_id', $request->product_id);
-
+      
         if ($item->count()) {
             $item->update([
                 'quantity' => $request->quantity
@@ -28,13 +28,14 @@ class ProductsCartController extends Controller
            
             $item = Cart::forceCreate([
                 'product_id' => $request->product_id,
-                'quantity' => 1,
+                'quantity' => $request->quantity,
             ]);
         }
-        return response()->json([
-            'quantity' => $item->quantity,
-            'product' => $item->product
-        ]);
+        // print_r($item);
+        // return response()->json([
+        //     'quantity' => $item->quantity,
+        //     'product' => $item->product
+        // ]);
     }
 
     public function destroy($productId)

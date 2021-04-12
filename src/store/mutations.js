@@ -1,4 +1,5 @@
-import axios from 'axios'
+
+import Cart from '../api/Cart'
 export const SET_PRODUCTS = (state,products) => {
     state.products = products
 }
@@ -12,10 +13,8 @@ export const ADD_TO_CART = (state,{product,quantity}) => {
        return item.product.id == product.id
     })
     if(productInCart){
-        
         productInCart.quantity =  productInCart.quantity + quantity
-
-        axios.post(`http://127.0.0.1:8000/api/cart`,{
+        Cart.store({
             product_id : product.id,
             quantity: productInCart.quantity
         })
@@ -25,10 +24,11 @@ export const ADD_TO_CART = (state,{product,quantity}) => {
         product,
         quantity
     })
-    axios.post(`http://127.0.0.1:8000/api/cart`,{
-            product_id : product.id,
-            quantity
-        })
+
+    Cart.store({
+        product_id : product.id,
+        quantity
+    })    
 }
 
 

@@ -1,42 +1,38 @@
-import axios from 'axios'
+
+import Product from '../api/Product'
+import Cart from '../api/Cart'
+
+
+
 export const getProducts = ({commit}) => {
    
-   axios.get('http://127.0.0.1:8000/api/products')
-   .then(resp => {
-     
+   Product.all().then(resp => {
        commit('SET_PRODUCTS',resp.data)
    })
 }
 
 export const getProduct = ({commit},productId) => {
-    
-    axios.get(`http://127.0.0.1:8000/api/products/${productId}`)
-    .then(resp => {
-      
+    Product.show(productId).then(resp => {
         commit('SET_PRODUCT',resp.data)
     })
 }
 
 
 export const  addToCart = ({commit},{product,quantity}) => {
-   
         commit('ADD_TO_CART',{product,quantity})
-        
 }
 
 
 export const  removeProduct = ({commit},product) => {
-    axios.delete(`http://127.0.0.1:8000/api/cart/${product.product.id}`)
+    Cart.delete(product.product.id)
     commit('REMOVE_PRODUCT',product)
-
 }
 
 
 
 export const  getCartProducts = ({commit}) => {
-
-    axios.get(`http://127.0.0.1:8000/api/cart`).then(res => {
+    Cart.data()
+    .then(res => {
         commit('SET_CART_PRODUCTS',res.data)
     })
-
 }
