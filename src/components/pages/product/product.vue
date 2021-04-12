@@ -23,31 +23,28 @@
 </template>
 
 <script>
+import {mapState,mapActions} from 'vuex'
     export default {
         name:'Product',
         props:['id'],
         computed:{
-           product(){
-               return this.$store.state.product
-           }
+            ...mapState(['product'])
+          
        },
        methods: {
+         
             addCart(){
-                 this.$store.dispatch('addToCart',{
+                this.addToCart({
                      product : this.product,
                      quantity : 1
                  });
-            }
+            },
+              ...mapActions(['addToCart','getProduct']),
        },
-        beforeCreate() {
-
-            this.$store.dispatch('getProduct',this.id)
-        },
-        mounted() {
-           
-            console.log(this.product)
-
-        },
+        created() {
+            this.getProduct(this.id)
+        }
+        
        
     }
 </script>

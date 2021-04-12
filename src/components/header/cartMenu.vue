@@ -27,31 +27,25 @@
              </div>
 
             <div class="col-6 " style="text-align:end">
-            {{cartPrice}}
+            {{cartItemPrice}}
             </div>
             </div>
            
         </ul>
 </template>
 <script>
+import {mapState,mapGetters,mapActions} from 'vuex'
 export default {
     name:'CartMenu',
      computed:{
-             cart(){
-               return this.$store.state.cart;
-           },
-           cartPrice(){
-            return this.$store.getters.cartItemPrice
-          }
-           
+           ...mapState(['cart']),
+           ...mapGetters(['cartItemPrice']) 
         },
         methods: {
-          removeProduct(item){
-            this.$store.dispatch('removeProduct',item)
-          }
+          ...mapActions(['removeProduct','getCartProducts'])
         },
         mounted() {
-           this.$store.dispatch('getCartProducts');
+           this.getCartProducts();
         },
        
 }

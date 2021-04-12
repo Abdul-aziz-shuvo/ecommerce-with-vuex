@@ -21,7 +21,7 @@
 
       <div class="dropdown">
         <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-           Cart - {{cartCount}}
+           Cart - {{cartItemCount}}
         </button>
        <cart-menu />
       </div>
@@ -34,20 +34,16 @@
 
 <script>
 import CartMenu from './cartMenu'
+import {mapGetters} from 'vuex'
     export default {
         name: 'Nav',
         components:{
           CartMenu
         },
         computed:{
-          cartCount(){
-            return this.$store.getters.cartItemCount
-          }
-           
+          ...mapGetters(['cartItemCount'])
         },
-        mounted() {
-          
-        },
+        
        
     }
 </script>

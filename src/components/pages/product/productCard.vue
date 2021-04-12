@@ -14,20 +14,20 @@
 </template>
 
 <script>
+import {mapActions} from 'vuex'
     export default {
         props:['product'],
         name:'ProductCard',
         methods: {
+            ...mapActions(['addToCart']),
             addCart(){
-                 this.$store.dispatch('addToCart',{
+                this.addToCart({
                      product : this.product,
                      quantity : 1
-                 });
+                 })
+                 
             }
-        },
-        mounted() {
-           
-        },
+        }
       
     }
 </script>
