@@ -8,8 +8,9 @@
                 </div>
                 <div class="col-8">
                     <h2>{{product?.title}}</h2>
-                    <input type="number" class=" col-1 mr-2" name="" value="">
-                    <button type="" class="btn btn-info" @click="addCart">Add to cart</button>
+                    <input type="number" min="1" v-model.number="quantity" class=" col-1 mr-2" name="" >
+                    <span> Price : {{product?.price}}</span>
+                    <button type="" class="btn btn-info d-block mt-3" @click="addCart" >Add to cart</button>
                     <div class="mt-3">
                          <p>{{product?.description}}</p>
                       
@@ -27,6 +28,11 @@ import {mapState,mapActions} from 'vuex'
     export default {
         name:'Product',
         props:['id'],
+        data() {
+            return {
+                quantity:1
+            }
+        },
         computed:{
             ...mapState(['product'])
           
@@ -36,7 +42,7 @@ import {mapState,mapActions} from 'vuex'
             addCart(){
                 this.addToCart({
                      product : this.product,
-                     quantity : 1
+                     quantity : this.quantity
                  });
             },
               ...mapActions(['addToCart','getProduct']),
@@ -44,8 +50,6 @@ import {mapState,mapActions} from 'vuex'
         created() {
             this.getProduct(this.id)
         }
-        
-       
     }
 </script>
 
